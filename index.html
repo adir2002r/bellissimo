@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BELLISSIMO - Heladería artesanal en Arequipa, Perú. Disfruta de helados únicos, copas especiales y milkshakes preparados con ingredientes de primera calidad." />
+  <title>BELLISSIMO — Heladería Artesanal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       BARRA DE NAVEGACIÓN
+  ═══════════════════════════════════════ -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__container">
+
+      <!-- Logo -->
+      <a href="#inicio" class="navbar__logo" aria-label="Inicio">
+        <span class="navbar__logo-icon">🍦</span>
+        <span class="navbar__logo-text">BELLISSIMO</span>
+      </a>
+
+      <!-- Hamburguesa (móvil) -->
+      <button class="navbar__burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Links -->
+      <nav class="navbar__nav" id="navMenu" role="navigation">
+        <a href="#inicio"       class="navbar__link active-link">Inicio</a>
+        <a href="#nosotros"     class="navbar__link">Nosotros</a>
+        <a href="#menu"         class="navbar__link">Menú</a>
+        <a href="#promociones"  class="navbar__link">Promociones</a>
+        <a href="#contacto"     class="navbar__link">Contacto</a>
+        <a href="#menu"         class="navbar__btn-pedido">Hacer pedido</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Carrito flotante -->
+  <div class="cart-bubble" id="cartBubble" aria-label="Ver carrito">
+    <span class="cart-bubble__icon">🛒</span>
+    <span class="cart-bubble__count" id="cartCount">0</span>
+  </div>
+
+  <!-- Panel del carrito -->
+  <aside class="cart-panel" id="cartPanel" aria-hidden="true">
+    <div class="cart-panel__header">
+      <h2>🛒 Mi pedido</h2>
+      <button class="cart-panel__close" id="cartClose" aria-label="Cerrar carrito">✕</button>
+    </div>
+    <ul class="cart-panel__list" id="cartList">
+      <li class="cart-panel__empty">Tu carrito está vacío 🍦</li>
+    </ul>
+    <div class="cart-panel__footer">
+      <div class="cart-panel__total">
+        Total: <span id="cartTotal">S/ 0.00</span>
+      </div>
+      <button class="cart-panel__checkout" id="checkoutBtn">Realizar pedido</button>
+      <button class="cart-panel__clear"    id="clearCartBtn">Vaciar carrito</button>
+    </div>
+  </aside>
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════
+         SECCIÓN HERO
+    ═══════════════════════════════════════ -->
+    <section class="hero" id="inicio">
+
+      <!-- Blobs decorativos -->
+      <div class="hero__blob hero__blob--1" aria-hidden="true"></div>
+      <div class="hero__blob hero__blob--2" aria-hidden="true"></div>
+      <div class="hero__blob hero__blob--3" aria-hidden="true"></div>
+
+      <!-- Círculos flotantes -->
+      <div class="hero__circles" aria-hidden="true">
+        <div class="hero__circle c1"></div>
+        <div class="hero__circle c2"></div>
+        <div class="hero__circle c3"></div>
+        <div class="hero__circle c4"></div>
+        <div class="hero__circle c5"></div>
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__pretitle">✨ Heladería Artesanal</p>
+        <h1 class="hero__title">
+          Cada <span class="hero__highlight">sabor</span><br>
+          es una historia<br>
+          <em>dulce</em>
+        </h1>
+        <p class="hero__subtitle">
+          En BELLISSIMO transformamos ingredientes frescos en momentos de pura felicidad.<br>
+          Helados artesanales preparados con amor, solo para ti.
+        </p>
+        <div class="hero__actions">
+          <a href="#menu"        class="btn btn--primary">🍦 Explorar sabores</a>
+          <a href="#promociones" class="btn btn--outline">🎁 Ver promociones</a>
+        </div>
+
+        <!-- Estadísticas pequeñas -->
+        <div class="hero__stats">
+          <div class="hero__stat">
+            <strong>+40</strong>
+            <span>Sabores</span>
+          </div>
+          <div class="hero__stat">
+            <strong>100%</strong>
+            <span>Artesanal</span>
+          </div>
+          <div class="hero__stat">
+            <strong>+5★</strong>
+            <span>Reseñas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ilustración decorativa CSS del helado -->
+      <div class="hero__illustration" aria-hidden="true">
+        <div class="ice-cream">
+          <div class="ice-cream__scoop scoop--3"></div>
+          <div class="ice-cream__scoop scoop--2"></div>
+          <div class="ice-cream__scoop scoop--1"></div>
+          <div class="ice-cream__drip d1"></div>
+          <div class="ice-cream__drip d2"></div>
+          <div class="ice-cream__drip d3"></div>
+          <div class="ice-cream__cone"></div>
+          <div class="ice-cream__sparkle sp1">✦</div>
+          <div class="ice-cream__sparkle sp2">✦</div>
+          <div class="ice-cream__sparkle sp3">✦</div>
+        </div>
+      </div>
+
+      <!-- Ola inferior -->
+      <div class="hero__wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,40 C360,90 1080,0 1440,50 L1440,90 L0,90 Z" fill="#fff8f9"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECCIÓN NOSOTROS
+    ═══════════════════════════════════════ -->
+    <section class="about" id="nosotros">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <p class="section-pretitle">🌸 Quiénes somos</p>
+          <h2 class="section-title">La historia detrás de<br><span>BELLISSIMO</span></h2>
+        </div>
+
+        <div class="about__grid">
+
+          <!-- Historia -->
+          <div class="about__card reveal">
+            <div class="about__card-icon">📖</div>
+            <h3>Nuestra historia</h3>
+            <p>
+              BELLISSIMO nació en 2018 en el corazón de Arequipa con un sueño simple:
+              crear el helado más delicioso de la ciudad. Fundada por la familia Medina,
+              comenzamos en un pequeño local con solo 10 sabores hechos a mano.
+              Hoy, con más de 40 variedades y fieles clientes que nos visitan cada día,
+              seguimos elaborando cada helado con la misma pasión y dedicación del primer día.
+            </p>
+          </div>
+
+          <!-- Misión -->
+          <div class="about__card reveal">
+            <div class="about__card-icon">🎯</div>
+            <h3>Misión</h3>
+            <p>
+              Ofrecer experiencias heladas únicas, elaboradas con ingredientes naturales
+              de alta calidad, brindando a nuestros clientes momentos de alegría,
+              frescura y bienestar en cada visita a BELLISSIMO.
+            </p>
+          </div>
+
+          <!-- Visión -->
+          <div class="about__card reveal">
+            <div class="about__card-icon">🌟</div>
+            <h3>Visión</h3>
+            <p>
+              Ser la heladería artesanal más reconocida del sur del Perú,
+              expandiendo nuestra marca a nivel nacional y manteniéndonos como
+              referente de calidad, innovación y excelente servicio al cliente.
+            </p>
+          </div>
+
+          <!-- Especial -->
+          <div class="about__card about__card--featured reveal">
+            <div class="about__card-icon">💎</div>
+            <h3>¿Qué nos hace especiales?</h3>
+            <ul class="about__list">
+              <li>✦ Recetas originales con técnicas artesanales</li>
+              <li>✦ Ingredientes frescos y naturales de Arequipa</li>
+              <li>✦ Sin conservantes ni colorantes artificiales</li>
+              <li>✦ Opciones veganas y sin lactosa disponibles</li>
+              <li>✦ Personalización de sabores por encargo</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECCIÓN MENÚ
+    ═══════════════════════════════════════ -->
+    <section class="menu" id="menu">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <p class="section-pretitle">🍧 Nuestra carta</p>
+          <h2 class="section-title">Nuestro <span>Menú</span></h2>
+          <p class="section-desc">Descubre toda nuestra selección de delicias heladas</p>
+        </div>
+
+        <!-- Filtros de categoría -->
+        <div class="menu__filters reveal">
+          <button class="menu__filter active" data-filter="all">Todo</button>
+          <button class="menu__filter" data-filter="artesanal">🍦 Artesanales</button>
+          <button class="menu__filter" data-filter="frutas">🍓 Frutas</button>
+          <button class="menu__filter" data-filter="copas">🍨 Copas</button>
+          <button class="menu__filter" data-filter="milkshake">🥤 Milkshakes</button>
+          <button class="menu__filter" data-filter="sundae">🍫 Sundaes</button>
+        </div>
+
+        <!-- Tarjetas de productos -->
+        <div class="menu__grid" id="menuGrid">
+
+          <!-- ── Artesanales ── -->
+          <article class="product-card reveal" data-category="artesanal">
+            <div class="product-card__badge">⭐ Favorito</div>
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🍦</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Artesanal</span>
+              <h3 class="product-card__name">Vainilla Suprema</h3>
+              <p class="product-card__desc">Helado clásico de vainilla bourbon con un toque de crema fresca y esencia natural.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 7.00</span>
+                <button class="btn-add" data-name="Vainilla Suprema" data-price="7.00">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="artesanal">
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🍫</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Artesanal</span>
+              <h3 class="product-card__name">Chocolate Belga</h3>
+              <p class="product-card__desc">Intenso helado elaborado con cacao 70% belga importado y toques de café expresso.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 8.00</span>
+                <button class="btn-add" data-name="Chocolate Belga" data-price="8.00">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="artesanal">
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🍓</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Artesanal</span>
+              <h3 class="product-card__name">Fresa & Crema</h3>
+              <p class="product-card__desc">Combinación perfecta de fresas frescas de temporada con crema chantilly artesanal.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 7.50</span>
+                <button class="btn-add" data-name="Fresa & Crema" data-price="7.50">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="artesanal">
+            <div class="product-card__badge badge--new">Nuevo</div>
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🥭</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Artesanal</span>
+              <h3 class="product-card__name">Mango Tropical</h3>
+              <p class="product-card__desc">Helado elaborado con mango de Piura en su punto exacto de madurez, sin azúcares añadidos.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 7.50</span>
+                <button class="btn-add" data-name="Mango Tropical" data-price="7.50">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="artesanal">
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🫐</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Artesanal</span>
+              <h3 class="product-card__name">Blueberry Dream</h3>
+              <p class="product-card__desc">Arándanos frescos mezclados con leche orgánica para una experiencia antioxidante y deliciosa.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 8.50</span>
+                <button class="btn-add" data-name="Blueberry Dream" data-price="8.50">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ── Helados de frutas ── -->
+          <article class="product-card reveal" data-category="frutas">
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🍋</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Frutas</span>
+              <h3 class="product-card__name">Limón Citrus</h3>
+              <p class="product-card__desc">Refrescante sorbete de limón con toque de menta fresca y ralladura de limón natural.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 6.50</span>
+                <button class="btn-add" data-name="Limón Citrus" data-price="6.50">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="frutas">
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🍍</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Frutas</span>
+              <h3 class="product-card__name">Piña Colada Ice</h3>
+              <p class="product-card__desc">Exótico sorbete de piña fresca con esencia de coco y un toque tropical irresistible.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 7.00</span>
+                <button class="btn-add" data-name="Piña Colada Ice" data-price="7.00">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="frutas">
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🍇</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Frutas</span>
+              <h3 class="product-card__name">Uva Morada</h3>
+              <p class="product-card__desc">Sorbete intenso de uva morada peruana con un balance perfecto entre dulce y ácido.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 6.50</span>
+                <button class="btn-add" data-name="Uva Morada" data-price="6.50">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="frutas">
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🥝</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Frutas</span>
+              <h3 class="product-card__name">Kiwi Fresco</h3>
+              <p class="product-card__desc">Sorprendente helado de kiwi verde con semillas visibles y un final ligeramente ácido.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 7.00</span>
+                <button class="btn-add" data-name="Kiwi Fresco" data-price="7.00">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ── Copas especiales ── -->
+          <article class="product-card reveal" data-category="copas">
+            <div class="product-card__badge">⭐ Popular</div>
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🍨</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Copas especiales</span>
+              <h3 class="product-card__name">Copa Bellissimo</h3>
+              <p class="product-card__desc">3 bolas a elección + crema batida + frutos del bosque + sirope de chocolate + barquillo.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 18.00</span>
+                <button class="btn-add" data-name="Copa Bellissimo" data-price="18.00">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="copas">
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🌸</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Copas especiales</span>
+              <h3 class="product-card__name">Copa Romántica</h3>
+              <p class="product-card__desc">Fresa + vainilla + chocolate + pétalos de rosas comestibles + sirope de fresas.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 20.00</span>
+                <button class="btn-add" data-name="Copa Romántica" data-price="20.00">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="copas">
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🧁</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Copas especiales</span>
+              <h3 class="product-card__name">Copa Tropical</h3>
+              <p class="product-card__desc">Mango + piña + coco + frutas tropicales frescas + leche condensada + chantilly.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 19.00</span>
+                <button class="btn-add" data-name="Copa Tropical" data-price="19.00">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ── Milkshakes ── -->
+          <article class="product-card reveal" data-category="milkshake">
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🥤</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Milkshake</span>
+              <h3 class="product-card__name">Shake Fresa</h3>
+              <p class="product-card__desc">Cremoso batido de fresa artesanal con leche entera, hielo y coronado con crema batida.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 14.00</span>
+                <button class="btn-add" data-name="Shake Fresa" data-price="14.00">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="milkshake">
+            <div class="product-card__badge">⭐ N°1</div>
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🍫</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Milkshake</span>
+              <h3 class="product-card__name">Shake Oreo</h3>
+              <p class="product-card__desc">Irresistible batido con galletas Oreo trituradas, helado de vainilla y sirope de chocolate.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 16.00</span>
+                <button class="btn-add" data-name="Shake Oreo" data-price="16.00">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="milkshake">
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🥭</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Milkshake</span>
+              <h3 class="product-card__name">Shake Mango</h3>
+              <p class="product-card__desc">Exótico batido de mango fresco con yogur natural y un toque de maracuyá peruano.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 15.00</span>
+                <button class="btn-add" data-name="Shake Mango" data-price="15.00">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ── Sundaes ── -->
+          <article class="product-card reveal" data-category="sundae">
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🍫</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Sundae</span>
+              <h3 class="product-card__name">Sundae Clásico</h3>
+              <p class="product-card__desc">Helado de vainilla bañado en chocolate caliente, nueces caramelizadas y crema batida.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 13.00</span>
+                <button class="btn-add" data-name="Sundae Clásico" data-price="13.00">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="sundae">
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🍓</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Sundae</span>
+              <h3 class="product-card__name">Sundae Berry</h3>
+              <p class="product-card__desc">Mezcla de helados rojos con compota caliente de frutos del bosque y granola artesanal.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 14.00</span>
+                <button class="btn-add" data-name="Sundae Berry" data-price="14.00">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="sundae">
+            <div class="product-card__badge badge--new">Nuevo</div>
+            <div class="product-card__icon-wrap">
+              <div class="product-card__icon">🥜</div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__cat">Sundae</span>
+              <h3 class="product-card__name">Sundae Caramelo</h3>
+              <p class="product-card__desc">Helado de toffee con salsa de caramelo artesanal, maní tostado y bizcocho crujiente.</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">S/ 15.00</span>
+                <button class="btn-add" data-name="Sundae Caramelo" data-price="15.00">+ Agregar</button>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /menu__grid -->
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECCIÓN PROMOCIONES
+    ═══════════════════════════════════════ -->
+    <section class="promos" id="promociones">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <p class="section-pretitle">🎁 Ofertas especiales</p>
+          <h2 class="section-title">Nuestras <span>Promociones</span></h2>
+          <p class="section-desc">Disfruta de nuestras mejores ofertas y combos irresistibles</p>
+        </div>
+
+        <div class="promos__grid">
+
+          <div class="promo-card promo-card--pink reveal">
+            <div class="promo-card__badge">🔥 Más vendido</div>
+            <div class="promo-card__icon">👫</div>
+            <h3 class="promo-card__title">Combo Pareja</h3>
+            <p class="promo-card__desc">
+              2 copas Bellissimo + 2 milkshakes a elección<br>
+              <strong>+ galletas de regalo</strong>
+            </p>
+            <div class="promo-card__pricing">
+              <span class="promo-card__old">S/ 76.00</span>
+              <span class="promo-card__new">S/ 55.00</span>
+            </div>
+            <div class="promo-card__tag">Ahorras S/ 21</div>
+            <button class="btn btn--primary promo-btn" data-name="Combo Pareja" data-price="55.00">Agregar al pedido</button>
+          </div>
+
+          <div class="promo-card promo-card--blue reveal">
+            <div class="promo-card__badge">👥 Grupal</div>
+            <div class="promo-card__icon">🎉</div>
+            <h3 class="promo-card__title">Combo Amigos x4</h3>
+            <p class="promo-card__desc">
+              4 bolas de helado artesanal a elección<br>
+              <strong>+ 1 sundae compartido</strong>
+            </p>
+            <div class="promo-card__pricing">
+              <span class="promo-card__old">S/ 60.00</span>
+              <span class="promo-card__new">S/ 42.00</span>
+            </div>
+            <div class="promo-card__tag">Ahorras S/ 18</div>
+            <button class="btn btn--primary promo-btn" data-name="Combo Amigos x4" data-price="42.00">Agregar al pedido</button>
+          </div>
+
+          <div class="promo-card promo-card--cream reveal">
+            <div class="promo-card__badge">⚡ Oferta día</div>
+            <div class="promo-card__icon">☀️</div>
+            <h3 class="promo-card__title">Happy Hour</h3>
+            <p class="promo-card__desc">
+              Lunes a Viernes de 3 PM a 5 PM<br>
+              <strong>2×1 en helados artesanales</strong>
+            </p>
+            <div class="promo-card__pricing">
+              <span class="promo-card__new">2 × 1</span>
+            </div>
+            <div class="promo-card__tag">Todos los días de semana</div>
+            <button class="btn btn--primary promo-btn" data-name="Happy Hour 2×1" data-price="7.00">Aprovechar oferta</button>
+          </div>
+
+          <div class="promo-card promo-card--purple reveal">
+            <div class="promo-card__badge">🎂 Especial</div>
+            <div class="promo-card__icon">🎂</div>
+            <h3 class="promo-card__title">Pack Cumpleaños</h3>
+            <p class="promo-card__desc">
+              1 torta de helado personalizada +<br>
+              <strong>5 copas para los invitados</strong>
+            </p>
+            <div class="promo-card__pricing">
+              <span class="promo-card__old">S/ 150.00</span>
+              <span class="promo-card__new">S/ 110.00</span>
+            </div>
+            <div class="promo-card__tag">Pide con 48 h de anticipación</div>
+            <button class="btn btn--primary promo-btn" data-name="Pack Cumpleaños" data-price="110.00">Reservar ahora</button>
+          </div>
+
+          <div class="promo-card promo-card--green reveal">
+            <div class="promo-card__badge">🌱 Saludable</div>
+            <div class="promo-card__icon">💚</div>
+            <h3 class="promo-card__title">Combo Fit</h3>
+            <p class="promo-card__desc">
+              2 sorbetes de frutas naturales +<br>
+              <strong>1 smoothie de frutas sin azúcar</strong>
+            </p>
+            <div class="promo-card__pricing">
+              <span class="promo-card__old">S/ 28.00</span>
+              <span class="promo-card__new">S/ 20.00</span>
+            </div>
+            <div class="promo-card__tag">Ahorras S/ 8</div>
+            <button class="btn btn--primary promo-btn" data-name="Combo Fit" data-price="20.00">Agregar al pedido</button>
+          </div>
+
+          <div class="promo-card promo-card--gold reveal">
+            <div class="promo-card__badge">👑 Premium</div>
+            <div class="promo-card__icon">🏆</div>
+            <h3 class="promo-card__title">Combo Familiar</h3>
+            <p class="promo-card__desc">
+              6 bolas artesanales + 2 milkshakes<br>
+              <strong>+ 1 Copa Bellissimo de regalo</strong>
+            </p>
+            <div class="promo-card__pricing">
+              <span class="promo-card__old">S/ 100.00</span>
+              <span class="promo-card__new">S/ 72.00</span>
+            </div>
+            <div class="promo-card__tag">Ahorras S/ 28</div>
+            <button class="btn btn--primary promo-btn" data-name="Combo Familiar" data-price="72.00">Agregar al pedido</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECCIÓN ¿POR QUÉ ELEGIRNOS?
+    ═══════════════════════════════════════ -->
+    <section class="why" id="por-que">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <p class="section-pretitle">💎 Nuestra promesa</p>
+          <h2 class="section-title">¿Por qué elegir <span>BELLISSIMO</span>?</h2>
+        </div>
+
+        <div class="why__grid">
+
+          <div class="why__card reveal">
+            <div class="why__card-circle">🌿</div>
+            <h3>Ingredientes naturales</h3>
+            <p>Usamos solo frutas frescas, leche orgánica y productos sin conservantes. Lo que entra es puro, lo que sale es delicioso.</p>
+          </div>
+
+          <div class="why__card reveal">
+            <div class="why__card-circle">🎨</div>
+            <h3>Sabores únicos</h3>
+            <p>Creamos combinaciones originales que no encontrarás en ningún otro lugar. Cada semana innovamos con nuevas propuestas.</p>
+          </div>
+
+          <div class="why__card reveal">
+            <div class="why__card-circle">🤲</div>
+            <h3>Preparación artesanal</h3>
+            <p>Cada helado se elabora a mano con técnicas italianas tradicionales, respetando los tiempos y procesos que garantizan la mejor textura.</p>
+          </div>
+
+          <div class="why__card reveal">
+            <div class="why__card-circle">💛</div>
+            <h3>Atención de calidad</h3>
+            <p>Nuestro equipo está capacitado para brindarte la mejor experiencia, desde el momento en que entras hasta que terminas tu último bocado.</p>
+          </div>
+
+          <div class="why__card reveal">
+            <div class="why__card-circle">🏡</div>
+            <h3>Ambiente agradable</h3>
+            <p>Un espacio moderno, cómodo e instagrameable diseñado para que disfrutes con familia, pareja o amigos en todo momento.</p>
+          </div>
+
+          <div class="why__card reveal">
+            <div class="why__card-circle">🚀</div>
+            <h3>Delivery rápido</h3>
+            <p>Llevamos tus helados favoritos hasta la puerta de tu casa en Arequipa con nuestro servicio de delivery express en menos de 45 minutos.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECCIÓN CONTACTO
+    ═══════════════════════════════════════ -->
+    <section class="contact" id="contacto">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <p class="section-pretitle">📬 Escríbenos</p>
+          <h2 class="section-title">¿Hablamos? <span>Contáctanos</span></h2>
+        </div>
+
+        <div class="contact__grid">
+
+          <!-- Formulario -->
+          <div class="contact__form-wrap reveal">
+            <form class="contact__form" id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="contactName">Nombre completo</label>
+                <input type="text" id="contactName" name="name" placeholder="Tu nombre" autocomplete="name" />
+                <span class="form-error" id="nameError"></span>
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">Correo electrónico</label>
+                <input type="email" id="contactEmail" name="email" placeholder="tu@correo.com" autocomplete="email" />
+                <span class="form-error" id="emailError"></span>
+              </div>
+              <div class="form-group">
+                <label for="contactPhone">Teléfono (opcional)</label>
+                <input type="tel" id="contactPhone" name="phone" placeholder="+51 999 000 000" autocomplete="tel" />
+              </div>
+              <div class="form-group">
+                <label for="contactMsg">Mensaje</label>
+                <textarea id="contactMsg" name="message" placeholder="Escríbenos tu mensaje, consulta o pedido especial..." rows="5"></textarea>
+                <span class="form-error" id="msgError"></span>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full">
+                Enviar mensaje 📨
+              </button>
+              <div class="form-success" id="formSuccess" aria-live="polite"></div>
+            </form>
+          </div>
+
+          <!-- Info de contacto -->
+          <div class="contact__info reveal">
+
+            <div class="contact__info-card">
+              <div class="contact__info-icon">📍</div>
+              <div>
+                <strong>Dirección</strong>
+                <p>Av. Ejército 215, Yanahuara<br>Arequipa, Perú</p>
+              </div>
+            </div>
+
+            <div class="contact__info-card">
+              <div class="contact__info-icon">🕐</div>
+              <div>
+                <strong>Horario de atención</strong>
+                <p>Lun – Vie: 11:00 AM – 10:00 PM<br>Sáb – Dom: 10:00 AM – 11:00 PM</p>
+              </div>
+            </div>
+
+            <div class="contact__info-card">
+              <div class="contact__info-icon">📞</div>
+              <div>
+                <strong>Teléfono</strong>
+                <p>+51 054 123 456</p>
+              </div>
+            </div>
+
+            <div class="contact__info-card">
+              <div class="contact__info-icon">✉️</div>
+              <div>
+                <strong>Correo</strong>
+                <p>hola@bellissimo.pe</p>
+              </div>
+            </div>
+
+            <!-- WhatsApp -->
+            <a
+              href="https://wa.me/51999000123?text=Hola%20BELLISSIMO%2C%20quiero%20hacer%20un%20pedido%20%F0%9F%8D%A6"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact__whatsapp"
+            >
+              <span class="contact__whatsapp-icon">💬</span>
+              <span>Pedir por WhatsApp</span>
+              <small>+51 999 000 123</small>
+            </a>
+
+            <!-- Mini mapa CSS -->
+            <div class="contact__map">
+              <div class="contact__map-pin">📍</div>
+              <span>Yanahuara · Arequipa · Perú</span>
+              <div class="contact__map-street">Av. Ejército 215</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════
+       PIE DE PÁGINA
+  ═══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer__grid">
+
+        <!-- Marca -->
+        <div class="footer__brand">
+          <div class="footer__logo">🍦 BELLISSIMO</div>
+          <p>Heladería artesanal en el corazón de Arequipa. Desde 2018 endulzando tu vida con sabores únicos.</p>
+          <!-- Redes sociales -->
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Instagram" title="Instagram">
+              <span>📸</span>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Facebook" title="Facebook">
+              <span>👍</span>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="TikTok" title="TikTok">
+              <span>🎵</span>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="YouTube" title="YouTube">
+              <span>▶️</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navegación -->
+        <div class="footer__col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#promociones">Promociones</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Categorías -->
+        <div class="footer__col">
+          <h4>Productos</h4>
+          <ul>
+            <li><a href="#menu">Helados artesanales</a></li>
+            <li><a href="#menu">Helados de frutas</a></li>
+            <li><a href="#menu">Copas especiales</a></li>
+            <li><a href="#menu">Milkshakes</a></li>
+            <li><a href="#menu">Sundaes</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacto -->
+        <div class="footer__col">
+          <h4>Contacto</h4>
+          <ul>
+            <li>📍 Av. Ejército 215, Yanahuara</li>
+            <li>🏙️ Arequipa, Perú</li>
+            <li>📞 +51 054 123 456</li>
+            <li>✉️ hola@bellissimo.pe</li>
+            <li>💬 +51 999 000 123 (WA)</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2025 BELLISSIMO Heladería Artesanal. Todos los derechos reservados.</p>
+        <p>Hecho con ❤️ en Arequipa, Perú 🇵🇪</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Toast de notificación -->
+  <div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+  <!-- Botón volver arriba -->
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Volver al inicio">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
